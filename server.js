@@ -17,7 +17,7 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 /// Serve static assets if in production
-if(process.env.NODE_EN === 'production') {
+if(process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
   app.get('*', () => (req, res) => {
