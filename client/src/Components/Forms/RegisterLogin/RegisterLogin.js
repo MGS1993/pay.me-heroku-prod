@@ -13,19 +13,7 @@ const RegisterLogin = (props) => {
   let rendered = null;
   let notMatchingStyle = null;
   
-  useEffect(() => {
-    fetchData()
-    
-  }, [])
-  const fetchData = async() => {
-    try {
-      const response = await fetch('api/get-expenses')
-      const data = await response.json()
-      console.log(data)
-    }catch(error) {
-      console.log('error')
-    }
-  }
+  
   const handleLogin = async e => {
     try {
         e.preventDefault();
@@ -41,7 +29,7 @@ const RegisterLogin = (props) => {
           }
         })
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         if(response.status === 200) {
           localStorage.setItem('user', data.user.userName)
           localStorage.setItem('userID', data.user._id)

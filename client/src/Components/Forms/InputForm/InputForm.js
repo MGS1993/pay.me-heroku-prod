@@ -64,7 +64,7 @@ const InputForm = props => {
       }
     })
 
-    console.log(dataBody)
+    // console.log(dataBody)
     setItemName('');
     setExpense('');
     setTipPercentage('');
