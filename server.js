@@ -24,6 +24,6 @@ if(process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8000
 
 app.listen(port, console.log(`running on port ${port} `));
