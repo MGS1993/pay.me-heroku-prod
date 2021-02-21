@@ -1,0 +1,30 @@
+.labelWrapper {
+  margin: 10% 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.labelWrapper > input {
+  padding: 5px 7px;
+  font-size: 20px;
+}
+.sliderValDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.labelWrapper:nth-child(7) > input:nth-child(2) {
+  background-color: #1bc2f9;
+  border: 1px solid #1bc2f9;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+  @media only screen and (min-width: 768px) {
+    .labelWrapper > input {
+      padding: 5px 7px;
+      font-size: 14px;
+    }
+  }
