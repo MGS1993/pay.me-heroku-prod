@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  max-width: 500px;
 }
 .labelWrapper > input {
   padding: 5px 7px;

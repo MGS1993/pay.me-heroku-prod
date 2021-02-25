@@ -24,67 +24,9 @@ const InputForm = props => {
     color: 'green',
     margin: '0'
   }
+
   formSubmitted ? confirmMsgStyle = {opacity: '1'} : confirmMsgStyle = {opacity: '0'}
-  // let confirmMsgStyle = {
-  //   opacity: '1'
-  // };
-  // const handleFormSubmit = e => {
-  //   e.preventDefault();
-  //   let dataBody 
-  //   let calcExp
-  //   let calcSplit
-  //   if((tipPercentage === '' || tipPercentage === 0 ) && (splitBy > 0)) {
-  //     const userEmail = localStorage.getItem('userEmail');
-  //     calcSplit = +expense * +splitBy / 100 
-  //     console.log('test')
-  //     dataBody = {
-  //       itemName,
-  //       expense: expense,
-  //       payMe: calcSplit,
-  //       email: userEmail
-  //     }
-  //   }
-    
-  //   if(tipPercentage > 0 && splitBy > 0) {
-  //     const userEmail = localStorage.getItem('userEmail');
-  //     let calcTip = tipPercentage / 100
-  //     let totalTip = calcTip * expense
-      
-  //     calcExp = +totalTip + +expense
-  //     calcSplit = +calcExp * +splitBy / 100 
-  //     dataBody = {
-  //       itemName,
-  //       expense: calcExp ,
-  //       payMe: calcExp - (+calcExp - +calcSplit),
-  //       email: userEmail,
-        
-  //     }
-  //   }
-    
-  //   fetch('api/add-expense', {
-  //     method: 'POST',
-  //     body: JSON.stringify(dataBody),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //   })
 
-  //   fetch('api/add-expense/send-reminder', {
-  //     method: 'POST',
-  //     body: JSON.stringify(dataBody),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-
-  //   // console.log(dataBody)
-  //   setItemName('');
-  //   setExpense('');
-  //   setTipPercentage('');
-  //   setSplitBy('');
-    
-    
-  // }
   const handleFormSubmit = e => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -115,35 +57,31 @@ const InputForm = props => {
         expense: calcExp ,
         payMe: calcExp - (+calcExp - +calcSplit),
         email: userEmail,
-        
       }
     }
-    
-    // fetch('api/add-expense', {
-    //   method: 'POST',
-    //   body: JSON.stringify(dataBody),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    // })
-    console.log('add expense', dataBody)
-    console.log('reminder send for dataBody')
-    // fetch('api/add-expense/send-reminder', {
-    //   method: 'POST',
-    //   body: JSON.stringify(dataBody),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
+  
+    fetch('api/add-expense', {
+      method: 'POST',
+      body: JSON.stringify(dataBody),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
 
-    // console.log(dataBody)
+    fetch('api/add-expense/send-reminder', {
+      method: 'POST',
+      body: JSON.stringify(dataBody),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    console.log(dataBody)
     setItemName('');
     setExpense('');
     setTipPercentage('');
     setSplitBy('');
     setTimeout(() => setFormSubmitted(false), 3000)
-    
-    
   }
   return(
     <React.Fragment>                      
@@ -179,7 +117,6 @@ const InputForm = props => {
       style={submitBtnStyle}
       inputType='submit'
       value='Submit'/>
-      
       </form>
     </React.Fragment>
   )

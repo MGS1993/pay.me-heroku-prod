@@ -65,9 +65,6 @@ const HomePage = props => {
     </div>
   </div>
   }
-  ///FIND A WAY TO RENDER THAT FUCKING TEXT ON CLICK.
-  ///MAYBE LOOK UP HOW TO PASS A FUNCTION FROM CHILD TO PARENT OR SOMETHING
-  ///THIS IS BULLSHIT
   return(
     rendered
   )
