@@ -42,6 +42,14 @@
     display: flex;
     flex-direction: column;
   }
+  @media only screen and (min-width: 768px) {
+    .labelWrapper > label {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
   .submitBtn {
     margin-top: 30px;
     background-color:#1bc2f9; 

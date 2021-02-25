@@ -5,6 +5,14 @@
   justify-content: center;
   flex-direction: column;
 }
+@media only screen and (min-width: 768px) {
+  .hpWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .header {
   display: flex;
   background-color: #1bc2f9;
@@ -39,11 +47,28 @@ h1 {
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .hpWrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
+
+/* .confirmMsgDivWrapper {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  animation-name: confirmText;
+  animation-duration: 4s;
+  color: green;
+  margin:0;
+} */
+.confirmMsg {
+  opacity: 0;
+  position: relative;
+  color: green;
+  margin:0;
+  transition: 1s ease-in-out;
 }
+
+/* @keyframes confirmText {
+  0%    {opacity: 0;}
+  50%   {opacity: 1;}
+  100%  {opacity: 0;}
+} */
+
+

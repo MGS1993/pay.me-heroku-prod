@@ -5,6 +5,12 @@ import SignOutBtn from '../Forms/SignOutBtn/SignOutBtn';
 import styles from './HomePage.module.css';
 
 const HomePage = props => {
+  // const [confirmMsgStyle, setConfirmMsgStyle] = useState({})
+
+  
+ 
+
+
   const [loggedIn, setLoggedIn] = useState(false)
   // eslint-disable-next-line
   const [currentUser, setCurrentUser] = useState('')
@@ -15,6 +21,7 @@ const HomePage = props => {
   })
 
   let rendered = null
+  
   const loggedInChecker = () => {
       const loggedInUser = localStorage.getItem('user');
       const loggedInUserID = localStorage.getItem('userID');
@@ -51,13 +58,16 @@ const HomePage = props => {
       
     </div>
     <div className={styles.hpInputWrapper}>
-    <SignOutBtn
-      logoutHandler = {handleLogout} />
+      <SignOutBtn
+        logoutHandler = {handleLogout} />
+        
       <InputForm />
     </div>
   </div>
   }
-  
+  ///FIND A WAY TO RENDER THAT FUCKING TEXT ON CLICK.
+  ///MAYBE LOOK UP HOW TO PASS A FUNCTION FROM CHILD TO PARENT OR SOMETHING
+  ///THIS IS BULLSHIT
   return(
     rendered
   )
