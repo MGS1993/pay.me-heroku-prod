@@ -6,6 +6,7 @@ const InputForm = props => {
   const [expense, setExpense] = useState(0)
   const [tipPercentage, setTipPercentage] = useState(0)
   const [splitBy, setSplitBy] = useState(0)
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   let submitBtnStyle = {
     backgroundColor: '#1bc2f9',
@@ -15,8 +16,67 @@ const InputForm = props => {
     cursor: 'pointer',
     height: '40px'
   }
+  let formSubmitHelper = formSubmitted
+  // const handleFormSubmit = e => {
+  //   e.preventDefault();
+  //   let dataBody 
+  //   let calcExp
+  //   let calcSplit
+  //   if((tipPercentage === '' || tipPercentage === 0 ) && (splitBy > 0)) {
+  //     const userEmail = localStorage.getItem('userEmail');
+  //     calcSplit = +expense * +splitBy / 100 
+  //     console.log('test')
+  //     dataBody = {
+  //       itemName,
+  //       expense: expense,
+  //       payMe: calcSplit,
+  //       email: userEmail
+  //     }
+  //   }
+    
+  //   if(tipPercentage > 0 && splitBy > 0) {
+  //     const userEmail = localStorage.getItem('userEmail');
+  //     let calcTip = tipPercentage / 100
+  //     let totalTip = calcTip * expense
+      
+  //     calcExp = +totalTip + +expense
+  //     calcSplit = +calcExp * +splitBy / 100 
+  //     dataBody = {
+  //       itemName,
+  //       expense: calcExp ,
+  //       payMe: calcExp - (+calcExp - +calcSplit),
+  //       email: userEmail,
+        
+  //     }
+  //   }
+    
+  //   fetch('api/add-expense', {
+  //     method: 'POST',
+  //     body: JSON.stringify(dataBody),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //   })
+
+  //   fetch('api/add-expense/send-reminder', {
+  //     method: 'POST',
+  //     body: JSON.stringify(dataBody),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+
+  //   // console.log(dataBody)
+  //   setItemName('');
+  //   setExpense('');
+  //   setTipPercentage('');
+  //   setSplitBy('');
+    
+    
+  // }
   const handleFormSubmit = e => {
     e.preventDefault();
+    setFormSubmitted(true);
     let dataBody 
     let calcExp
     let calcSplit
@@ -48,21 +108,22 @@ const InputForm = props => {
       }
     }
     
-    fetch('api/add-expense', {
-      method: 'POST',
-      body: JSON.stringify(dataBody),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-
-    fetch('api/add-expense/send-reminder', {
-      method: 'POST',
-      body: JSON.stringify(dataBody),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    // fetch('api/add-expense', {
+    //   method: 'POST',
+    //   body: JSON.stringify(dataBody),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    // })
+    console.log('add expense', dataBody)
+    console.log('reminder send for dataBody')
+    // fetch('api/add-expense/send-reminder', {
+    //   method: 'POST',
+    //   body: JSON.stringify(dataBody),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
 
     // console.log(dataBody)
     setItemName('');
@@ -105,6 +166,7 @@ const InputForm = props => {
       value='Submit'/>
       
       </form>
+      {props.formSubmitHelper}
     </React.Fragment>
   )
 }

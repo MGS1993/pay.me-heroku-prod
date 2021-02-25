@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "../../Input/Input";
 import styles from "./RegisterLogin.module.css";
 
@@ -70,12 +70,12 @@ const RegisterLogin = (props) => {
   if(applyRegister === false) {
         rendered = (
         <React.Fragment>
-        <h3>Please Login In</h3>
+        <h3>Please Login</h3>
         <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.labelWrapper}>
             <label>
-              <div>User Name</div>
               <Input
+                labelName='UserName'
                 className={styles.input}
                 type="text"
                 name="userName"
@@ -87,8 +87,8 @@ const RegisterLogin = (props) => {
 
           <div className={styles.labelWrapper}>
             <label>
-              <div>PassWord</div>
               <Input
+                labelName='Password'
                 inputType="password"
                 className={styles.input}
                 value={passWord}
